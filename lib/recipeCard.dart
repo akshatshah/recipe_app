@@ -14,7 +14,7 @@ class _RecipesScreenState extends State<RecipesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title:Text("Recipes")),
+      appBar: AppBar(title: Text("Recipes")),
       body: RecipeCard(),
     );
   }
@@ -87,16 +87,16 @@ class RecipeCardItem extends StatelessWidget {
         shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-            // Row(
-            //   children: <Widget>[
-            //     Expanded(
-            //       child: Text(
-            //           '${snapshot.data[i].recipeImageUrl}'),
-            //     )
-            //   ],
-            // ),
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: Image.network(
+                      'https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg'),
+                )
+              ],
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
