@@ -61,7 +61,7 @@ class _RecipeCardState extends State<RecipeCard> {
                 if (snapshot.hasError) {
                   return Text("Error");
                 }
-                return ListView.builder(
+                return Swiper(
                   itemCount: snapshot.data.length,
                   itemBuilder: (context, i) => Center(
                       child: Card(
