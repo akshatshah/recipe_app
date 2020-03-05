@@ -60,6 +60,7 @@ class _RecipeCardState extends State<RecipeCard> {
               itemCount: snapshot.data.length,
               itemBuilder: (context, i) => Center(
                   child: RecipeCardItem(
+                id: snapshot.data[i].recipeId,
                 name: snapshot.data[i].recipeName,
                 duration: snapshot.data[i].recipeDuration,
               )),
@@ -71,9 +72,11 @@ class _RecipeCardState extends State<RecipeCard> {
 }
 
 class RecipeCardItem extends StatelessWidget {
+  final int id;
   final String name;
   final int duration;
   const RecipeCardItem({
+    this.id,
     this.name,
     this.duration,
     Key key,
@@ -93,7 +96,7 @@ class RecipeCardItem extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                   child: Image.network(
-                      'https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg'),
+                      'https://spoonacular.com/recipeImages/${id.toString()}-556x370.jpg'),
                 )
               ],
             ),
