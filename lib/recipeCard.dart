@@ -86,7 +86,7 @@ class RecipeCardItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         elevation: 5,
-        margin: EdgeInsets.fromLTRB(20, 150, 20, 150),
+        margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
         shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: Column(
@@ -95,17 +95,37 @@ class RecipeCardItem extends StatelessWidget {
             Row(
               children: <Widget>[
                 Expanded(
+                    child: ClipRRect(
+                  borderRadius:
+                      BorderRadius.vertical(top: Radius.circular(10.0)),
                   child: Image.network(
                       'https://spoonacular.com/recipeImages/${id.toString()}-556x370.jpg'),
-                )
+                ))
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Text(name),
-                Text(duration.toString()),
-              ],
+            Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: Text(
+                      name,
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blueGrey[800]),
+                    ),
+                  ),
+                  Text(
+                    '${duration.toString()} mins',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blueGrey[800]),
+                  ),
+                ],
+              ),
             )
           ],
         ));
